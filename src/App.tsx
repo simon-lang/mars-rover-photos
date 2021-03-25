@@ -1,16 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {getPhotos} from './services/photo-service'
 
-interface Person {
-    name: String
-    age: number
-}
-
-const person: Person = {
-    name: 'Simon',
-    age: 22,
-}
+getPhotos({
+    rover: 'opportunity',
+    camera: 'FHAZ',
+    sol: 4304
+}).then(res => {
+    console.log(res.data.photos)
+})
 
 function App() {
   return (

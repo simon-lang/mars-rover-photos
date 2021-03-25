@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { observer  } from 'mobx-react';
 
@@ -16,7 +16,7 @@ const TimerView = observer(({ timer }) => (
 
 ReactDOM.render(
   <React.StrictMode>
-      <TimerView timer={myTimer} />
+      <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
