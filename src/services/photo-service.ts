@@ -9,7 +9,7 @@ const API_KEY: string = 'wwYXJBLASfX4wNrbLfEetDdx6U3EbRSm1Lx93DGa';
 //     API_KEY = 'wwYXJBLASfX4wNrbLfEetDdx6U3EbRSm1Lx93DGa';
 // }
 
-export const getPhotos = function(filter) {
+export const getPhotos = async function(filter) {
     var url;
     url = API_URL + 'rovers/' + filter.rover.toLowerCase() + '/photos' + '?camera=' + filter.camera;
     if (filter.sol != null) {
