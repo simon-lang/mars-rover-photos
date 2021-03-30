@@ -1,59 +1,76 @@
 import './App.css'
 import Photos from './store/photos'
-import { useEffect, useState } from 'react'
+import Manifest from './store/manifest'
+import React, {Suspense} from 'react'
 import { Photo } from './models/Photo'
-import { Manifest } from './models/Manifest'
-import { observer  } from 'mobx-react'
+import { observer } from 'mobx-react'
 import { getPhotos, getManifest } from './services/photo-service'
+import { useImage } from 'react-image'
 
 const photos = new Photos()
+const manifest = new Manifest()
 
-const PhotoView = ({ photo }) => (
-    <div className="Photo">
-        <div> {photo.rover.name} </div>
-        <div> {photo.camera.name} </div>
-        <div> {photo.earth_date} </div>
-        <img src={photo.img_src} alt={`Mars Rover ${photo.camera.name}`}/>
-    </div>
+const DebugView = (data) => (
+    <div><pre>{JSON.stringify(data, null, 2) }</pre></div>
 )
 
+const PhotoView = ({ photo }) => {
+    // const {src} = useImage({
+    //     srcList: photo.img_src
+    // })
+    const src = photo.img_src
+    return (
+        <div className="Photo">
+            <div> {photo.rover.name} </div>
+            <div> {photo.camera.name} </div>
+            <div> {photo.earth_date} </div>
+            <img src={src} alt={`Mars Rover ${photo.camera.name}`} className="Photo__image" />
+        </div>
+    )
+}
+
 const PhotosView = observer(({ photos }) => {
-    useEffect(() => { })
+    const {items, page} = photos
     return <div className="Photos">
-        {photos.items.map((photo: Photo) => <PhotoView photo={photo} key={photo.id} />) }
+        <button className="btn" onClick={() => photos.setPage(page - 1)}>Prev</button>
+        <div className="Photos__items">
+            {photos.items.slice(page, page + 5).map((photo: Photo) => <PhotoView photo={photo} key={photo.id} />) }
+        </div>
+        <button className="btn" onClick={() => photos.setPage(page + 1)}>Next</button>
+        <div hidden>Page: {page}</div>
+    </div>
+    })
+
+const ManifestView = observer(({ manifest }) => {
+    return <div className="manifest">
+        <div>Manifest</div>
+        <DebugView data={manifest.data} />
     </div>
 })
 
-const ManifestView = () => {
-	const [manifest, setManifest] = useState({name: '???'})
-    getManifest('spirit').then((d: Manifest) => {
-        console.log({manifest: d})
-		setManifest(d)
-    })
-    return <div>
-		<div>Manifest</div>
-		{manifest.name}
-	</div>
-}
-
 const App = () => (
-    <div className="App">
-        <header className="App-header">
-            Mars Rover Image Viewer
-        </header>
-        <ManifestView />
-        <PhotosView photos={photos} />
-    </div>
+    <Suspense fallback="https://mars.nasa.gov/msl-raw-images/msss/00476/mhli/0476MH0264000000E1_DXXX.jpg">
+        <div className="App">
+            <header className="App-header">
+                Mars Rover Image Viewer
+            </header>
+            <PhotosView photos={photos} />
+            <ManifestView manifest={manifest} />
+        </div>
+    </Suspense>
 )
 
 async function main() {
     const res = await getPhotos({
-        rover: 'opportunity',
-        camera: 'FHAZ',
-        sol: 1
+        rover: 'curiosity',
+        camera: 'NAVCAM',
+        sol: 3072
     })
     console.log(res.data.photos)
     photos.set(res.data.photos)
+
+    const manifestRes = await getManifest('curiosity')
+    manifest.set(manifestRes)
 }
 main()
 

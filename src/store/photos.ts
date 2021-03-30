@@ -2,6 +2,7 @@ import { makeAutoObservable  } from 'mobx';
 
 class Photos {
     items: Array<string> = []
+    page: number = 0
 
     constructor() {
         makeAutoObservable(this)
@@ -11,12 +12,16 @@ class Photos {
         this.items = items
     }
 
-    add() {
-        this.items.push('test')
+    add(item) {
+        this.items.push(item)
     }
 
     reset() {
         this.items = []
+    }
+
+    setPage(i) {
+        this.page = i
     }
 }
 

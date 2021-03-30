@@ -4,20 +4,24 @@ html {
     background-attachment: fixed;
     background-size: cover;
     height: 100%;
-
+    color: #f0f0f0;
 }
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    background: linear-gradient(180deg, rgba(48, 48, 48, 0.81) 0%, rgba(0, 0, 0, 0.81) 100%);
+    font-family: sans-serif;
+    background: rgba(0, 0, 0, 0.8)
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+code, pre {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.btn {
+    background: black;
+    color: white;
+    border: 1px solid #111;
+}
+
+[hidden] {
+    display: none !important;
 }
