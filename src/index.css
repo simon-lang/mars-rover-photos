@@ -1,27 +1,30 @@
 html {
-    background: url(https://mars.nasa.gov/msl-raw-images/msss/00476/mhli/0476MH0264000000E1_DXXX.jpg);
-    background-position: bottom;
+    background: url(bg.jpg);
+    background-position: top;
     background-attachment: fixed;
     background-size: cover;
-    height: 100%;
     color: #f0f0f0;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 body {
     margin: 0;
-    font-family: sans-serif;
     background: rgba(0, 0, 0, 0.8)
 }
-
-code, pre {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .btn {
     background: black;
     color: white;
     border: 1px solid #111;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
 }
 
 [hidden] {
     display: none !important;
 }
+

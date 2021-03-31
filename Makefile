@@ -1,0 +1,4 @@
+dev: 
+	yarn start
+
+.PHONY: 

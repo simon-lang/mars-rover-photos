@@ -21,6 +21,8 @@ class Photos {
     }
 
     setPage(i) {
+        if (i < 0) i = 0
+        if (i >= this.items.length) i = this.items.length - 1
         this.page = i
     }
 }

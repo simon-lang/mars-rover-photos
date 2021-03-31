@@ -5,7 +5,8 @@ const API_URL: string = 'https://api.nasa.gov/mars-photos/api/v1/'
 const API_KEY: string = 'wwYXJBLASfX4wNrbLfEetDdx6U3EbRSm1Lx93DGa'
 
 export const getPhotos = async (filter) => {
-    let url: string = API_URL + 'rovers/' + filter.rover.toLowerCase() + '/photos?camera=' + filter.camera
+    let url: string = API_URL + 'rovers/' + filter.rover.toLowerCase() + '/photos?'
+    // 'camera=' + filter.camera
     if (filter.sol != null) {
         url += '&sol=' + filter.sol
     } else {

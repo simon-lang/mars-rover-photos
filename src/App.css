@@ -1,21 +1,25 @@
 .App {
     border: 1px solid #111;
-    min-height: 100vh;
 }
-
-.App-header {
-    background-color: black;
+.App__header {
+    background: rgba(0, 0, 0, 0.56);
+    font-family: 'Courier New';
+    text-align: center;
+    height: 160px;
     font-size: 2em;
     color: white;
+    display: flex;
+    align-items: center;
+}
+
+.Filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.Filters__item {
+    background: rgba(0, 0, 0, 0.2);
     padding: 1em;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-img {
-    width: 300px;
 }
 
 .Photos {
@@ -25,14 +29,26 @@ img {
 }
 .Photos__items {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
 .Photo {
-    background: black;
     color: white;
+    background-size: cover;
+    width: 280px;
+    height: 280px;
+    margin: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+.Photo__details {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
 }
 .Photo__image {
-    cursor: pointer;
 }
 
 .Manifest {
 }
+
