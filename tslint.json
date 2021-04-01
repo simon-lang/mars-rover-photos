@@ -4,8 +4,19 @@
         "tslint:recommended"
     ],
     "jsRules": {},
+    "globals": {
+        "vegaEmbed": true
+    },
     "rules": {
-        "semicolon": [true, "never"]
+        "semicolon": [
+            true,
+            "never"
+        ],
+        "quotes": [
+            "warn",
+            "single",
+            "avoid-escape"
+        ]
     },
     "rulesDirectory": []
 }

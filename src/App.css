@@ -30,6 +30,7 @@
     justify-content: center;
 }
 .Photos__items {
+    min-height: 720px;
 }
 @media(min-width: 600px) {
     .Photos__items {
@@ -52,10 +53,22 @@
     display: flex;
     align-items: flex-end;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    cursor: pointer;
+    /* transition: opacity 0.2s ease; */
+}
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .Photo--reveal {
     opacity: 1;
+    animation: reveal 0.2s ease forwards;
 }
 .Photo__details {
     background: rgba(0, 0, 0, 0.5);
@@ -68,3 +81,18 @@
     font-size: 18px;
 }
 
+.SelectedPhoto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+.SelectedPhoto > img {
+    animation: reveal 200ms ease forwards;
+}

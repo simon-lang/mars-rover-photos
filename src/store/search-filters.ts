@@ -11,6 +11,7 @@ class SearchFilters {
 
     setRover(rover) {
         this.rover = rover
+        this.sol = 1
         console.log('setRover', rover)
     }
 
