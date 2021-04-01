@@ -16,6 +16,7 @@
     "classnames": "^2.2.6",
     "dayjs": "^1.10.4",
     "graphql": "^15.5.0",
+    "lodash": "^4.17.21",
     "mobx": "^6.1.8",
     "mobx-react": "^7.1.0",
     "mobx-react-lite": "^3.2.0",

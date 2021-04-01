@@ -28,3 +28,9 @@ body {
     display: none !important;
 }
 
+.credit-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #727272;
+}
