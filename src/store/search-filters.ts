@@ -1,4 +1,4 @@
-import { makeAutoObservable  } from 'mobx';
+import { makeAutoObservable } from 'mobx'
 
 class SearchFilters {
     rover: string = 'perseverance'
@@ -27,4 +27,3 @@ class SearchFilters {
 }
 
 export default SearchFilters
-

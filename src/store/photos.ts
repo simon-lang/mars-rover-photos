@@ -1,4 +1,4 @@
-import { makeAutoObservable  } from 'mobx';
+import { makeAutoObservable } from 'mobx'
 
 class Photos {
     items: Array<string> = []
@@ -28,4 +28,3 @@ class Photos {
 }
 
 export default Photos
-

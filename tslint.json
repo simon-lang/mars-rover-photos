@@ -1,22 +1,13 @@
 {
     "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
+    "extends": ["tslint:recommended"],
     "jsRules": {},
     "globals": {
         "vegaEmbed": true
     },
     "rules": {
-        "semicolon": [
-            true,
-            "never"
-        ],
-        "quotes": [
-            "warn",
-            "single",
-            "avoid-escape"
-        ]
+        "semicolon": [true, "never"],
+        "quotes": ["warn", "single", "avoid-escape"]
     },
     "rulesDirectory": []
 }

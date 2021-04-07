@@ -1,14 +1,16 @@
 html {
-    background: url(bg.jpg);
+    /* background: url(bg.jpg); */
+    background: url(https://mars.nasa.gov/mars2020-raw-images/pub/ods/surface/sol/00015/ids/edr/browse/ncam/NLE_0015_0668277843_723ECM_N0030376NCAM03000_03_0LLJ01_1200.jpg);
     background-position: top;
     background-attachment: fixed;
     background-size: cover;
     color: #f0f0f0;
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 body {
     margin: 0;
-    background: rgba(0, 0, 0, 0.8)
+    background: rgba(0, 0, 0, 0.8);
 }
 .container {
     max-width: 1200px;

@@ -6,5 +6,5 @@ export interface Photo {
     img_src: string
     rover: Rover
     camera: Camera
-    earth_date: string 
+    earth_date: string
 }

@@ -23,6 +23,7 @@
 }
 
 .Photos {
+    min-height: 800px;
 }
 .Photos__carousel {
     display: flex;
@@ -32,13 +33,13 @@
 .Photos__items {
     min-height: 720px;
 }
-@media(min-width: 600px) {
+@media (min-width: 600px) {
     .Photos__items {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 }
-@media(min-width: 1200px) {
+@media (min-width: 1200px) {
     .Photos__items {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -78,6 +79,7 @@
 }
 
 .Manifest {
+    display: flex;
     font-size: 18px;
 }
 
@@ -87,6 +89,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;

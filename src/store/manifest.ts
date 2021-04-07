@@ -1,4 +1,4 @@
-import { makeAutoObservable  } from 'mobx';
+import { makeAutoObservable } from 'mobx'
 
 class Manifest {
     data: any = {}
@@ -13,4 +13,3 @@ class Manifest {
 }
 
 export default Manifest
-
