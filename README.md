@@ -1,13 +1,7 @@
-# MRIV-V2
+# Mars Rover Photos
 
-API Used:
+API Used: https://github.com/chrisccerami/mars-photo-api
 
-https://github.com/chrisccerami/mars-photo-api
+Official NASA page: https://mars.nasa.gov/mars2020/multimedia/raw-images/
 
-Official NASA:
-
-https://mars.nasa.gov/mars2020/multimedia/raw-images/
-
-Link to Camera explanations:
-
-https://mars.nasa.gov/mars2020/spacecraft/instruments/mastcam-z/
+Camera descriptions: https://mars.nasa.gov/mars2020/spacecraft/instruments/mastcam-z/

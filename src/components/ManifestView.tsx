@@ -1,3 +1,4 @@
+import './ManifestView.css'
 import React, { useState, useEffect, useRef } from 'react'
 import { getManifest } from '../services/photo-service'
 import { observer } from 'mobx-react'
@@ -10,7 +11,7 @@ declare global {
 
 const DebugView = (data) => (
     <div>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <pre>{JSON.stringify(data.data, null, 2)}</pre>
     </div>
 )
 
@@ -146,7 +147,14 @@ export const ManifestView = observer(({ manifest, filters }) => {
     return (
         <div className="Manifest">
             <div ref={chartRef}></div>
-            {data.name ? <DebugView data={data} /> : 'Loading...'}
+            <div style={{ paddingLeft: '1em' }}>
+                <pre>Rover Selected: Curiosity</pre>
+                <pre>Manifest... Loading</pre>
+                <pre>Mission Status... Active</pre>
+                <pre>Most Recent Photo... 2021-03-29</pre>
+                {data.name ? <DebugView data={data} /> : 'Loading...'}
+                <pre>&gt; Select date to view photos</pre>
+            </div>
         </div>
     )
 })

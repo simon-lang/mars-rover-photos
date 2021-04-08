@@ -1,0 +1,5 @@
+.Manifest {
+    display: flex;
+    font-size: 18px;
+    animation: revealOpacity 200ms 1.5s ease forwards;
+}

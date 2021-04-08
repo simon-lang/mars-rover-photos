@@ -1,5 +1,4 @@
 html {
-    /* background: url(bg.jpg); */
     background: url(https://mars.nasa.gov/mars2020-raw-images/pub/ods/surface/sol/00015/ids/edr/browse/ncam/NLE_0015_0668277843_723ECM_N0030376NCAM03000_03_0LLJ01_1200.jpg);
     background-position: top;
     background-attachment: fixed;
@@ -8,31 +7,42 @@ html {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
 body {
     margin: 0;
     background: rgba(0, 0, 0, 0.8);
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.btn {
-    background: black;
-    color: white;
-    border: 1px solid #111;
-    cursor: pointer;
-    padding: 0.5em 1em;
-    border-radius: 0.2em;
+    min-height: 100vh;
 }
 
 [hidden] {
     display: none !important;
 }
 
-.credit-link {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    color: #727272;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@keyframes revealOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

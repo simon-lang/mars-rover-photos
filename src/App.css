@@ -1,5 +1,4 @@
 .App {
-    border: 1px solid #111;
 }
 .App__header {
     background: rgba(0, 0, 0, 0.56);
@@ -10,6 +9,41 @@
     color: white;
     display: flex;
     align-items: center;
+    animation: revealHeader 0.375s 0.5s ease forwards;
+    opacity: 0;
+}
+.App__main {
+    opacity: 0;
+    animation: revealOpacity 0.375s 1.5s ease forwards;
+}
+@keyframes revealHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.View {
+    position: absolute;
+    width: 100%;
+    transform: translateX(-100%);
+    /* transition: transform 0.2s ease; */
+    opacity: 0;
+    transition: opacity 0.1s ease;
+}
+.View__active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.NavButton {
+    position: absolute;
+    right: 0;
+    z-index: 1;
 }
 
 .Filters {
@@ -24,6 +58,7 @@
 
 .Photos {
     min-height: 800px;
+    animation: revealOpacity 200ms 1.5s ease forwards;
 }
 .Photos__carousel {
     display: flex;
@@ -33,6 +68,7 @@
 .Photos__items {
     min-height: 720px;
 }
+
 @media (min-width: 600px) {
     .Photos__items {
         display: grid;
@@ -57,16 +93,6 @@
     cursor: pointer;
     /* transition: opacity 0.2s ease; */
 }
-@keyframes reveal {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 .Photo--reveal {
     opacity: 1;
     animation: reveal 0.2s ease forwards;
@@ -76,11 +102,6 @@
     width: 100%;
 }
 .Photo__image {
-}
-
-.Manifest {
-    display: flex;
-    font-size: 18px;
 }
 
 .SelectedPhoto {
@@ -98,4 +119,11 @@
 }
 .SelectedPhoto > img {
     animation: reveal 200ms ease forwards;
+}
+
+.credit-link {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #727272;
 }
