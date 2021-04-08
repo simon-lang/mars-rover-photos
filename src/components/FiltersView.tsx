@@ -6,7 +6,7 @@ import { observer } from 'mobx-react'
 export const FiltersView = observer(({ filters, photos }) => {
     const [cameras, setCameras] = useState<string[]>([])
     useEffect(() => {
-        const uniqueCameras = _.uniq(photos.items.map((d) => d.camera.name))
+        const uniqueCameras: string[] = _.uniq(photos.items.map((d) => d.camera.name))
         setCameras(['', ...uniqueCameras])
     }, [photos.items])
     return (
