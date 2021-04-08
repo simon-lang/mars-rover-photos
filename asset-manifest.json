@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/mars-rover-photos/static/css/main.f7f43ad3.chunk.css",
-    "main.js": "/mars-rover-photos/static/js/main.bdf4f5f6.chunk.js",
-    "main.js.map": "/mars-rover-photos/static/js/main.bdf4f5f6.chunk.js.map",
+    "main.css": "/mars-rover-photos/static/css/main.0400745e.chunk.css",
+    "main.js": "/mars-rover-photos/static/js/main.2fc18012.chunk.js",
+    "main.js.map": "/mars-rover-photos/static/js/main.2fc18012.chunk.js.map",
     "runtime-main.js": "/mars-rover-photos/static/js/runtime-main.eb53d11b.js",
     "runtime-main.js.map": "/mars-rover-photos/static/js/runtime-main.eb53d11b.js.map",
-    "static/js/2.af9e2d49.chunk.js": "/mars-rover-photos/static/js/2.af9e2d49.chunk.js",
-    "static/js/2.af9e2d49.chunk.js.map": "/mars-rover-photos/static/js/2.af9e2d49.chunk.js.map",
+    "static/js/2.a6e366d9.chunk.js": "/mars-rover-photos/static/js/2.a6e366d9.chunk.js",
+    "static/js/2.a6e366d9.chunk.js.map": "/mars-rover-photos/static/js/2.a6e366d9.chunk.js.map",
     "static/js/3.dd6037d9.chunk.js": "/mars-rover-photos/static/js/3.dd6037d9.chunk.js",
     "static/js/3.dd6037d9.chunk.js.map": "/mars-rover-photos/static/js/3.dd6037d9.chunk.js.map",
     "index.html": "/mars-rover-photos/index.html",
-    "static/css/main.f7f43ad3.chunk.css.map": "/mars-rover-photos/static/css/main.f7f43ad3.chunk.css.map",
-    "static/js/2.af9e2d49.chunk.js.LICENSE.txt": "/mars-rover-photos/static/js/2.af9e2d49.chunk.js.LICENSE.txt"
+    "static/css/main.0400745e.chunk.css.map": "/mars-rover-photos/static/css/main.0400745e.chunk.css.map",
+    "static/js/2.a6e366d9.chunk.js.LICENSE.txt": "/mars-rover-photos/static/js/2.a6e366d9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.eb53d11b.js",
-    "static/js/2.af9e2d49.chunk.js",
-    "static/css/main.f7f43ad3.chunk.css",
-    "static/js/main.bdf4f5f6.chunk.js"
+    "static/js/2.a6e366d9.chunk.js",
+    "static/css/main.0400745e.chunk.css",
+    "static/js/main.2fc18012.chunk.js"
   ]
 }
