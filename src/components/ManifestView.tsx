@@ -1,5 +1,5 @@
 import './ManifestView.css'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { getManifest } from '../services/photo-service'
 import { observer } from 'mobx-react'
 

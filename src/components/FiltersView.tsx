@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
-import { Button, TextField, Select, MenuItem } from '@material-ui/core'
+import { TextField, Select, MenuItem } from '@material-ui/core'
 import { observer } from 'mobx-react'
 
 export const FiltersView = observer(({ filters, photos }) => {

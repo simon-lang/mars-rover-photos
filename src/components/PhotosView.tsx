@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import _ from 'lodash'
 import { Button } from '@material-ui/core'
 import { Photo } from '../models/Photo'
 import { SearchFilter } from '../models/SearchFilter'
