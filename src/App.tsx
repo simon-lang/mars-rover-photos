@@ -1,6 +1,5 @@
 import './App.css'
 import Manifest from './store/manifest'
-import Photos from './store/photos'
 import SearchFilters from './store/search-filters'
 import { Button } from '@material-ui/core'
 import { FiltersView } from './components/FiltersView'
@@ -11,7 +10,6 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import { useState } from 'react'
 import classNames from 'classnames'
 
-const photos = new Photos()
 const manifest = new Manifest()
 const searchFilters = new SearchFilters()
 const theme = createMuiTheme({
@@ -42,7 +40,7 @@ const App = () => {
                         })}
                     >
                         <div className="container">
-                            <PhotosView photos={photos} filters={searchFilters} />
+                            <PhotosView filters={searchFilters} />
                         </div>
                     </div>
                     <div
@@ -52,7 +50,7 @@ const App = () => {
                         })}
                     >
                         <div className="container">
-                            <FiltersView photos={photos} filters={searchFilters} />
+                            <FiltersView filters={searchFilters} />
                             <ManifestView
                                 manifest={manifest}
                                 filters={searchFilters}

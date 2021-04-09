@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button } from '@material-ui/core'
 import { Photo } from '../models/Photo'
-import { SearchFilter } from '../models/SearchFilter'
-import { getPhotos } from '../services/photo-service'
+import { usePhotos } from '../services/photo-service'
 import { observer } from 'mobx-react'
 
 const PhotoView = ({ photo, onClickPhoto }) => {
@@ -30,41 +29,25 @@ const PhotoView = ({ photo, onClickPhoto }) => {
     )
 }
 
-export const PhotosView = observer(({ photos, filters }) => {
+export const PhotosView = observer(({ filters }) => {
+    const [page, setPage] = useState<number>(1)
     const [selectedPhoto, setSelectedPhoto] = useState<Photo | undefined>(
         undefined
     )
-    useEffect(() => {
-        photos.set([])
-        const params: SearchFilter = {
-            rover: filters.rover,
-            sol: filters.sol,
-        }
-        if (filters.camera) {
-            params.camera = filters.camera
-        }
-        getPhotos(params).then((res) => {
-            console.log(res.data.photos)
-            photos.set(res.data.photos)
-            photos.setPage(0)
-        })
-    }, [filters.rover, filters.camera, filters.sol, photos])
+    const { photos, isLoading } = usePhotos(filters)
     const selectPhoto = (photo: Photo | undefined) => {
         setSelectedPhoto(photo)
     }
-    const { items, page } = photos
-    if (!items) {
+    if (isLoading) {
         return <div>Loading...</div>
     }
+    const items = photos.photos
     const pages = Math.floor(items.length / 6)
     return (
         <div className="Photos">
             {items.length && (
                 <div className="Photos__carousel">
-                    <Button
-                        color="primary"
-                        onClick={() => photos.setPage(page - 6)}
-                    >
+                    <Button color="primary" onClick={() => setPage(page - 6)}>
                         Prev
                     </Button>
                     <div className="Photos__items">
@@ -76,10 +59,7 @@ export const PhotosView = observer(({ photos, filters }) => {
                             />
                         ))}
                     </div>
-                    <Button
-                        color="primary"
-                        onClick={() => photos.setPage(page + 6)}
-                    >
+                    <Button color="primary" onClick={() => setPage(page + 6)}>
                         Next
                     </Button>
                 </div>
