@@ -2,6 +2,7 @@ import './ManifestView.css'
 import React, { useEffect, useRef } from 'react'
 import { getManifest } from '../services/photo-service'
 import { observer } from 'mobx-react'
+import { navigate } from 'hookrouter'
 
 declare global {
     interface Window {
@@ -138,6 +139,7 @@ export const ManifestView = observer(({ manifest, filters }) => {
                         const { sol } = item.datum
                         if (sol) {
                             filters.setSol(sol)
+                            navigate('/photos')
                         }
                     }
                 })

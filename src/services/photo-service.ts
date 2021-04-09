@@ -2,13 +2,23 @@ import axios from 'axios'
 import dayjs from 'dayjs'
 import { SearchFilter } from '../models/SearchFilter'
 import useSWR from 'swr'
+// import { URLSearchParams } from "url"
 
 const API_URL: string = 'https://api.nasa.gov/mars-photos/api/v1/'
 const API_KEY: string = 'wwYXJBLASfX4wNrbLfEetDdx6U3EbRSm1Lx93DGa'
 
+const fetcher = async (
+    input: RequestInfo,
+    init: RequestInit,
+    ...args: any[]
+) => {
+    const res = await fetch(input, init)
+    return res.json()
+}
+
 const getUrl = (filter: SearchFilter) => {
-    let url: string =
-        API_URL + 'rovers/' + filter.rover.toLowerCase() + '/photos?'
+    const rover = filter.rover.toLowerCase()
+    let url: string = API_URL + 'rovers/' + rover + '/photos?'
     if (filter.camera) {
         url += 'camera=' + filter.camera
     }
@@ -18,21 +28,13 @@ const getUrl = (filter: SearchFilter) => {
         url += '&earth_date=' + dayjs(filter.earth_date).format('YYYY-M-D')
     }
     url += `&api_key=${API_KEY || 'DEMO_KEY'}`
+    // const queryString = new URLSearchParams(filter).toString()
+    // console.log({queryString})
     return url
 }
 
 export const usePhotos = (filter: SearchFilter) => {
     const url = getUrl(filter)
-    // const fetcher = (...args) => fetch(...args).then(res => res.json())
-    const fetcher = async (
-        input: RequestInfo,
-        init: RequestInit,
-        ...args: any[]
-    ) => {
-        const res = await fetch(input, init)
-        return res.json()
-    }
-
     const { data, error } = useSWR(url, fetcher)
     return {
         photos: data,
