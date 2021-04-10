@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/mars-rover-photos/static/css/main.bccf3d64.chunk.css",
-    "main.js": "/mars-rover-photos/static/js/main.82864576.chunk.js",
-    "main.js.map": "/mars-rover-photos/static/js/main.82864576.chunk.js.map",
-    "runtime-main.js": "/mars-rover-photos/static/js/runtime-main.c74fb976.js",
-    "runtime-main.js.map": "/mars-rover-photos/static/js/runtime-main.c74fb976.js.map",
-    "static/js/2.5dba7774.chunk.js": "/mars-rover-photos/static/js/2.5dba7774.chunk.js",
-    "static/js/2.5dba7774.chunk.js.map": "/mars-rover-photos/static/js/2.5dba7774.chunk.js.map",
-    "static/js/3.341b9d05.chunk.js": "/mars-rover-photos/static/js/3.341b9d05.chunk.js",
-    "static/js/3.341b9d05.chunk.js.map": "/mars-rover-photos/static/js/3.341b9d05.chunk.js.map",
+    "main.css": "/mars-rover-photos/static/css/main.f7f43ad3.chunk.css",
+    "main.js": "/mars-rover-photos/static/js/main.bdf4f5f6.chunk.js",
+    "main.js.map": "/mars-rover-photos/static/js/main.bdf4f5f6.chunk.js.map",
+    "runtime-main.js": "/mars-rover-photos/static/js/runtime-main.eb53d11b.js",
+    "runtime-main.js.map": "/mars-rover-photos/static/js/runtime-main.eb53d11b.js.map",
+    "static/js/2.af9e2d49.chunk.js": "/mars-rover-photos/static/js/2.af9e2d49.chunk.js",
+    "static/js/2.af9e2d49.chunk.js.map": "/mars-rover-photos/static/js/2.af9e2d49.chunk.js.map",
+    "static/js/3.dd6037d9.chunk.js": "/mars-rover-photos/static/js/3.dd6037d9.chunk.js",
+    "static/js/3.dd6037d9.chunk.js.map": "/mars-rover-photos/static/js/3.dd6037d9.chunk.js.map",
     "index.html": "/mars-rover-photos/index.html",
-    "static/css/main.bccf3d64.chunk.css.map": "/mars-rover-photos/static/css/main.bccf3d64.chunk.css.map",
-    "static/js/2.5dba7774.chunk.js.LICENSE.txt": "/mars-rover-photos/static/js/2.5dba7774.chunk.js.LICENSE.txt"
+    "static/css/main.f7f43ad3.chunk.css.map": "/mars-rover-photos/static/css/main.f7f43ad3.chunk.css.map",
+    "static/js/2.af9e2d49.chunk.js.LICENSE.txt": "/mars-rover-photos/static/js/2.af9e2d49.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c74fb976.js",
-    "static/js/2.5dba7774.chunk.js",
-    "static/css/main.bccf3d64.chunk.css",
-    "static/js/main.82864576.chunk.js"
+    "static/js/runtime-main.eb53d11b.js",
+    "static/js/2.af9e2d49.chunk.js",
+    "static/css/main.f7f43ad3.chunk.css",
+    "static/js/main.bdf4f5f6.chunk.js"
   ]
 }
