@@ -8,10 +8,7 @@ Official NASA page: https://mars.nasa.gov/mars2020/multimedia/raw-images/
 
 Camera descriptions: https://mars.nasa.gov/mars2020/spacecraft/instruments/mastcam-z/
 
-Favs:
+## Favs:
 
-Curiosity
-MAST
-2020-01-10
+[Curiosity MAST 2020-01-10](https://mars.nasa.gov/msl-raw-images/msss/02641/mcam/2641ML0138310241001179C00_DXXX.jpg)
 
-https://mars.nasa.gov/msl-raw-images/msss/02641/mcam/2641ML0138310241001179C00_DXXX.jpg

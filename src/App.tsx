@@ -2,14 +2,15 @@ import './App.css'
 import Manifest from './store/manifest'
 import SearchFilters from './store/search-filters'
 import classNames from 'classnames'
+import store from 'store'
 import { AppBar, Toolbar } from '@material-ui/core'
-import { FiltersView } from './components/FiltersView'
 import { ManifestView } from './components/ManifestView'
 import { Photo } from './models/Photo'
 import { PhotosView, PhotoView } from './components/PhotosView'
 import { ThemeProvider } from '@material-ui/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { useRoutes, navigate, A } from 'hookrouter'
+import { useState } from 'react'
 
 const manifest = new Manifest()
 const searchFilters = new SearchFilters()
@@ -59,6 +60,16 @@ const Splash = () => {
 }
 
 const MainView = ({ tab }) => {
+    const [selectedPhoto, setSelectedPhoto] = useState<Photo | undefined>(
+        undefined
+    )
+    const selectPhoto = (photo: Photo | undefined) => {
+        setSelectedPhoto(photo)
+        if (photo !== undefined) {
+            const favourites = store.get('favourites ') || []
+            store.set('favourites', [...favourites, photo])
+        }
+    }
     return (
         <>
             <div
@@ -78,7 +89,6 @@ const MainView = ({ tab }) => {
                 })}
             >
                 <div className="container">
-                    <FiltersView filters={searchFilters} />
                     <ManifestView manifest={manifest} filters={searchFilters} />
                 </div>
             </div>
@@ -89,9 +99,36 @@ const MainView = ({ tab }) => {
                 })}
             >
                 <div className="container">
-                    <PhotosView filters={searchFilters} />
+                    <PhotosView
+                        filters={searchFilters}
+                        onClickPhoto={selectPhoto}
+                    />
                 </div>
             </div>
+            {selectedPhoto ? (
+                <div
+                    className="SelectedPhoto"
+                    onClick={() => selectPhoto(undefined)}
+                >
+                    <div>
+                        <img
+                            src={selectedPhoto.img_src}
+                            alt={'Mars Rover Photo ' + selectedPhoto.id}
+                        />
+                        <div className="Photo__details">
+                            <div> {selectedPhoto.rover.name} </div>
+                            <div>
+                                {' '}
+                                {selectedPhoto.rover.missionDates || ''}{' '}
+                            </div>
+                            <div> {selectedPhoto.camera?.name} </div>
+                            <div> {selectedPhoto.earth_date} </div>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                ''
+            )}
         </>
     )
 }
@@ -124,11 +161,15 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <div className="App">
-                <header className="App__header">
-                    <div className="container">Mars Rover Photos</div>
-                </header>
+                <div className="App__header">
+                    <div className="container">
+                        <div className="App__header__inner">
+                            <div className="App__title">Mars Rover Photos</div>
+                            <NavView />
+                        </div>
+                    </div>
+                </div>
                 <div className="App__main">
-                    <NavView />
                     {routeResult}
                     <div className="container">
                         <a

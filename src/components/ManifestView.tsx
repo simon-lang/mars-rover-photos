@@ -1,4 +1,5 @@
 import './ManifestView.css'
+import { FiltersView } from './FiltersView'
 import React, { useEffect, useRef } from 'react'
 import { getManifest } from '../services/photo-service'
 import { observer } from 'mobx-react'
@@ -146,15 +147,20 @@ export const ManifestView = observer(({ manifest, filters }) => {
             })
     }
     // {photos ? `${photos.length} Days` : ""}
-    return (
+    // {data.name ? <DebugView data={data} /> : 'Loading...'}
+    return !data ? (
+        'Loading...'
+    ) : (
         <div className="Manifest">
             <div ref={chartRef}></div>
             <div style={{ paddingLeft: '1em' }}>
-                <pre>Rover Selected: Curiosity</pre>
+                <FiltersView filters={filters} />
+                <pre>Rover Selected: {data.name}</pre>
                 <pre>Manifest... Loading</pre>
-                <pre>Mission Status... Active</pre>
-                <pre>Most Recent Photo... 2021-03-29</pre>
-                {data.name ? <DebugView data={data} /> : 'Loading...'}
+                <pre>Mission Status... {data.status}</pre>
+                <pre>Most Recent Photo... {data.max_date}</pre>
+                <pre>Days... {data.max_sol?.toLocaleString()}</pre>
+                <pre>Total Photos... {data.total_photos?.toLocaleString()}</pre>
                 <pre>&gt; Select date to view photos</pre>
             </div>
         </div>
