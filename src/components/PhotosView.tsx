@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@material-ui/core'
 import { Photo } from '../models/Photo'
 import { usePhotos } from '../services/photo-service'
 import { observer } from 'mobx-react'
 
-const PhotoView = ({ photo, onClickPhoto }) => {
+export const PhotoView = ({ photo, onClickPhoto }) => {
     const [backgroundImage, setBackground] = useState('black')
     const [reveal, setReveal] = useState(false)
     const src = photo.img_src
@@ -21,8 +21,9 @@ const PhotoView = ({ photo, onClickPhoto }) => {
             onClick={() => onClickPhoto(photo)}
         >
             <div className="Photo__details">
-                <div hidden> {photo.rover.name} </div>
-                <div> {photo.camera.name} </div>
+                <div> {photo.rover.name} </div>
+                <div> {photo.rover.missionDates || ''} </div>
+                <div> {photo.camera?.name} </div>
                 <div> {photo.earth_date} </div>
             </div>
         </div>
@@ -34,14 +35,22 @@ export const PhotosView = observer(({ filters }) => {
     const [selectedPhoto, setSelectedPhoto] = useState<Photo | undefined>(
         undefined
     )
+    useEffect(() => {
+        setPage(1)
+    }, [filters])
     const { photos, isLoading } = usePhotos(filters)
     const selectPhoto = (photo: Photo | undefined) => {
         setSelectedPhoto(photo)
+        if (photo !== undefined) {
+            const favourites = store.get('favourites ') || []
+            store.set('favourites', [...favourites, photo])
+        }
     }
     if (isLoading) {
         return <div>Loading...</div>
     }
     const items = photos.photos
+    console.log({ items, page })
     const pages = Math.floor(items.length / 6)
     return (
         <div className="Photos">
@@ -73,10 +82,21 @@ export const PhotosView = observer(({ filters }) => {
                     className="SelectedPhoto"
                     onClick={() => selectPhoto(undefined)}
                 >
-                    <img
-                        src={selectedPhoto.img_src}
-                        alt={'Mars Rover Photo ' + selectedPhoto.id}
-                    />
+                    <div>
+                        <img
+                            src={selectedPhoto.img_src}
+                            alt={'Mars Rover Photo ' + selectedPhoto.id}
+                        />
+                        <div className="Photo__details">
+                            <div> {selectedPhoto.rover.name} </div>
+                            <div>
+                                {' '}
+                                {selectedPhoto.rover.missionDates || ''}{' '}
+                            </div>
+                            <div> {selectedPhoto.camera?.name} </div>
+                            <div> {selectedPhoto.earth_date} </div>
+                        </div>
+                    </div>
                 </div>
             ) : (
                 ''

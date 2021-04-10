@@ -40,10 +40,27 @@
     opacity: 1;
 }
 
-.NavButton {
-    position: absolute;
-    right: 0;
-    z-index: 1;
+.NavView {
+    background: rgba(0, 0, 0, 0.7);
+}
+.NavView__inner {
+    display: flex;
+    align-items: space-between;
+    /* justify-content: space-between; */
+}
+.NavItem {
+    display: block;
+    padding: 20px 40px;
+    color: white;
+    text-align: center;
+    background: #151515;
+}
+.NavItem:hover {
+    background: #222;
+}
+
+.SelectRover {
+    display: flex;
 }
 
 .Filters {
@@ -103,6 +120,12 @@
 }
 .Photo__image {
 }
+.Photo:hover {
+    opacity: 0.9 !important;
+}
+.Photo:hover .Photo__details {
+    background: rgba(0, 0, 0, 0.8);
+}
 
 .SelectedPhoto {
     position: fixed;
@@ -117,8 +140,10 @@
     background: rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
-.SelectedPhoto > img {
+.SelectedPhoto img {
     animation: reveal 200ms ease forwards;
+    max-height: 90vh;
+    /* max-width: 80%; */
 }
 
 .credit-link {

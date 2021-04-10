@@ -2,9 +2,9 @@ import { Camera } from './Camera'
 import { Rover } from './Rover'
 
 export interface Photo {
-    id: number
+    id?: number
     img_src: string
     rover: Rover
-    camera: Camera
-    earth_date: string
+    camera?: Camera
+    earth_date?: string
 }
