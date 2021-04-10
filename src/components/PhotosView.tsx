@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import store from 'store'
 import { Button } from '@material-ui/core'
 import { Photo } from '../models/Photo'
-import { usePhotos } from '../services/photo-service'
 import { observer } from 'mobx-react'
+import { usePhotos } from '../services/photo-service'
+import { useState, useEffect } from 'react'
 
 export const PhotoView = ({ photo, onClickPhoto }) => {
     const [backgroundImage, setBackground] = useState('black')
